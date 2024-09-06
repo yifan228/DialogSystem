@@ -5,6 +5,7 @@ using UnityEngine;
 public class DialogManager : MonoBehaviour
 {
     [SerializeField] DialogueView dialogUI;
+    [SerializeField] TextAsset dialogData;
     ADialogController currentDialogController;
     private void Start()
     {
@@ -15,13 +16,13 @@ public class DialogManager : MonoBehaviour
     [ContextMenu("test dialog")]
     public void TestDialog()
     {
-        StartDialog("test_dialog", 0);
+        StartDialog();
     }
 
-    public void StartDialog(string dialogName,int progress)
+    public void StartDialog()
     {
-        currentDialogController = SimpleFactory(dialogName);
-        currentDialogController.StartDialogAtProgress(dialogName,progress, dialogUI);
+        currentDialogController = SimpleFactory("");
+        currentDialogController.StartDialogAtProgress(dialogData, dialogUI);
     }
 
     private void CloseDialogUI()

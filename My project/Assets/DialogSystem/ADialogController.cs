@@ -1,88 +1,69 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
+
 using System.Linq;
 /// <summary>
 /// 以
 /// </summary>
 public class ADialogController 
 {
-    /// <summary>
-    /// 對應文本 1.xxx 2.xxx
-    /// </summary>
     protected int currentProgress;//從零開始
-    List<TextAsset> textsData = new List<TextAsset>();
     DialogModel model;
     protected DialogueView currentView;
-    protected AssetLabelReference txtLabel;
     protected string txtPath;
     public string DialogTopic;
-    protected LoadTxTtype loadTxtType;
-    public void StartDialogAtProgress(string dialogName,int progress,DialogueView view)
+    public void StartDialogAtProgress(TextAsset textsData,DialogueView view)
     {
-        LoadTxTSettings();
-        textsData.Clear();
         currentView = view;
-        switch (loadTxtType)
-        {
-            case LoadTxTtype.LoadWithLabel:
-                LoadTextByLabel(progress);
-                break;
-            case LoadTxTtype.LoadWithName:
-                LoadTextByName(dialogName);
-                break;
-            default:
-                LoadTextByName(dialogName);
-                break;
-        }
+        model = new DialogModel(textsData);
+        currentView.Initialize(ButtonsCallback, PlayNextById);
+        PlaySentence(0);
     }
 
-    private void LoadTextByLabel(int progress)
-    {
-        Addressables.LoadAssetsAsync<TextAsset>(txtLabel, (txt) => textsData.Add(txt)).Completed += (operationHandler) =>
-        {
-            textsData =textsData.OrderBy(t =>t.name[0]).ToList();
-            for (int i = 0; i < textsData.Count; i++)
-            {
-                 Debug.Log($"data{i} name : "+textsData[i].name);
-            }
-            if (operationHandler.Status == AsyncOperationStatus.Succeeded)
-            {
-                currentProgress = progress;
-                if (textsData.Count <= currentProgress)
-                {
-                    Debug.LogWarning("對話progress 超過此主題的文本數量");
-                }
-                model = new DialogModel(textsData[currentProgress]);
-                currentView.Initialize(ButtonsCallback, PlayNextById);
-                PlaySentence(0);
-            }
-            else
-            {
-                Debug.LogWarning("Failed to load");
-            }
-        };
-    }
+    // private void LoadTextByLabel(int progress)
+    // {
+    //     Addressables.LoadAssetsAsync<TextAsset>(txtLabel, (txt) => textsData.Add(txt)).Completed += (operationHandler) =>
+    //     {
+    //         textsData =textsData.OrderBy(t =>t.name[0]).ToList();
+    //         for (int i = 0; i < textsData.Count; i++)
+    //         {
+    //              Debug.Log($"data{i} name : "+textsData[i].name);
+    //         }
+    //         if (operationHandler.Status == AsyncOperationStatus.Succeeded)
+    //         {
+    //             currentProgress = progress;
+    //             if (textsData.Count <= currentProgress)
+    //             {
+    //                 Debug.LogWarning("對話progress 超過此主題的文本數量");
+    //             }
+    //             model = new DialogModel(textsData[currentProgress]);
+    //             currentView.Initialize(ButtonsCallback, PlayNextById);
+    //             PlaySentence(0);
+    //         }
+    //         else
+    //         {
+    //             Debug.LogWarning("Failed to load");
+    //         }
+    //     };
+    // }
 
-    private void LoadTextByName(string dialogName)
-    {
-        Addressables.LoadAssetAsync<TextAsset>(dialogName).Completed += (operationHandler) =>
-        {
-            if (operationHandler.Status == AsyncOperationStatus.Succeeded)
-            {
-                model = new DialogModel(operationHandler.Result);
-                currentView.Initialize(ButtonsCallback, PlayNextById);
-                PlaySentence(0);
-            }
-            else
-            {
-                Debug.LogWarning("Failed to load");
-            }
-        };
-    }
-
+    // private void LoadTextByName(string dialogName)
+    // {
+    //     Addressables.LoadAssetAsync<TextAsset>(dialogName).Completed += (operationHandler) =>
+    //     {
+    //         if (operationHandler.Status == AsyncOperationStatus.Succeeded)
+    //         {
+    //             model = new DialogModel(operationHandler.Result);
+    //             currentView.Initialize(ButtonsCallback, PlayNextById);
+    //             PlaySentence(0);
+    //         }
+    //         else
+    //         {
+    //             Debug.LogWarning("Failed to load");
+    //         }
+    //     };
+    // }
     protected virtual void LoadTxTSettings()
     {
     }
@@ -127,13 +108,6 @@ public class ADialogController
     {
         currentView.Close();
     }
-}
-
-public enum LoadTxTtype
-{
-    Default,
-    LoadWithLabel,
-    LoadWithName,
 }
 
 [Serializable]

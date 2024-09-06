@@ -1,0 +1,157 @@
+﻿{
+    "Contents":[
+        {
+            "id": 0,
+            "type": "Sentence",
+            "nextid": 1,
+            "nexttype": "Button",
+            "avatarimagename": "BlackWitch",
+            "avatarname": "影默",
+            "content": "你知道嗎?所謂的好壞，其實是一種調酒，而我這邊有一個內格羅尼，一個血腥瑪麗，要先聽哪一個呢?"
+        },
+        {
+            "id": 1,
+            "type": "Button",
+            "nextid": 2,
+            "nexttype": "Sentence",
+            "avatarimagename": "BlackWitch",
+            "avatarname": "影默",
+            "content": "妳要不要先聽聽看自己在說什麼?"
+        },
+        {
+            "id": 1,
+            "type": "Button",
+            "nextid": 3,
+            "nexttype": "Sentence",
+            "avatarimagename": "BlackWitch",
+            "avatarname": "影默",
+            "content": "先聽好消息"
+        },
+        {
+            "id": 1,
+            "type": "Button",
+            "nextid": 4,
+            "nexttype": "Sentence",
+            "avatarimagename": "BlackWitch",
+            "avatarname": "影默",
+            "content": "先聽壞消息"
+        },
+        {
+            "id": 1,
+            "type": "Button",
+            "nextid": 5,
+            "nexttype": "Sentence",
+            "avatarimagename": "BlackWitch",
+            "avatarname": "影默",
+            "content": "紅茶拿鐵 微微"
+        },
+        {
+            "id": 2,
+            "type": "Sentence",
+            "nextid": 6,
+            "nexttype": "Sentence",
+            "avatarimagename": "BlackWitch",
+            "avatarname": "影默",
+            "content": "哎呀呀，現在還聽不懂我說的話沒關係，等你長大就會瞭解了。"
+        },
+        {
+            "id": 3,
+            "type": "Sentence",
+            "nextid": 6,
+            "nexttype": "Sentence",
+            "avatarimagename": "BlackWitch",
+            "avatarname": "影默",
+            "content": "很棒的回答，但我不是你，我怎麼知道你心裡的好消息是哪個呢"
+        },
+        {
+            "id": 4,
+            "type": "Sentence",
+            "nextid": 6,
+            "nexttype": "Sentence",
+            "avatarimagename": "BlackWitch",
+            "avatarname": "影默",
+            "content": "很棒的回答，但我不是你，我怎麼知道你心裡的壞消息是哪個呢"
+        },
+        {
+            "id": 5,
+            "type": "Sentence",
+            "nextid": 6,
+            "nexttype": "Sentence",
+            "avatarimagename": "BlackWitch",
+            "avatarname": "影默",
+            "content": "這個回答可以啊，看起來你已經能跟我站在同一高度對話了。"
+        },
+        {
+            "id": 6,
+            "type": "Sentence",
+            "nextid": 7,
+            "nexttype": "Sentence",
+            "avatarimagename": "BlackWitch",
+            "avatarname": "影默",
+            "content": "那就先跟你說我認為比較重要的消息好了"
+        },
+        {
+            "id": 7,
+            "type": "Sentence",
+            "nextid": 8,
+            "nexttype": "Sentence",
+            "avatarimagename": "BlackWitch",
+            "avatarname": "影默",
+            "content": "我這陣子都不會回來，所以這陣子這座宮坊就拜託你囉。"
+        },
+        {
+            "id": 8,
+            "type": "Sentence",
+            "nextid": 9,
+            "nexttype": "Sentence",
+            "avatarimagename": "BlackWitch",
+            "avatarname": "影默",
+            "content": "另外比較不重要的消息是，當初為了蓋這座宮坊，我買下這顆星球，那時候我跟大巫海貸了款，所以等等會有人上門來找麻煩，幫我應付一下喔"
+        },
+        {
+            "id": 9,
+            "type": "Sentence",
+            "nextid": 10,
+            "nexttype": "Button",
+            "avatarimagename": "BlackWitch",
+            "avatarname": "影默",
+            "content": "···嘟嘟嘟···嘟嘟嘟···"
+        },
+        {
+            "id": 10,
+            "type": "Button",
+            "nextid": 11,
+            "nexttype": "Sentence",
+            "avatarimagename": "BlackWitch",
+            "avatarname": "影默",
+            "content": "···"
+        },
+        {
+            "id": 10,
+            "type": "Button",
+            "nextid": 12,
+            "nexttype": "Sentence",
+            "avatarimagename": "BlackWitch",
+            "avatarname": "影默",
+            "content": "喂!別掛斷啊，我已經聽到有人按門鈴了!"
+        },
+        {
+            "id": 11,
+            "type": "Sentence",
+            "nextid": 100,
+            "nexttype": "End",
+            "avatarimagename": "BlackWitch",
+            "avatarname": "影默",
+            "content": "通訊水晶結束了它這次通訊工作，而你的工作正要開始。"
+        },
+        {
+            "id": 12,
+            "type": "Sentence",
+            "nextid": 100,
+            "nexttype": "End",
+            "avatarimagename": "BlackWitch",
+            "avatarname": "影默",
+            "content": "通訊水晶靜靜的看著憤怒的你，它的工作已經完成，而你的工作正要開始。"
+        }
+    ]
+}
